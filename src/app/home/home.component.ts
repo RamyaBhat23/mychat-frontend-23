@@ -3,7 +3,7 @@ import { element } from 'protractor';
 import * as io from 'socket.io-client';
 import { AuthenticationService } from '../authentication.service';
 
-const SOCKET_ENDPOINT = 'localhost:3000';
+const SOCKET_ENDPOINT = 'https://dashboard.heroku.com/apps/mychat-backend-23';
 
 @Component({
   selector: 'app-home',

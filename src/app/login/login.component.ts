@@ -4,7 +4,7 @@ import { AuthenticationService } from '../authentication.service';
 import * as io from 'socket.io-client';
 import { Router } from '@angular/router';
 
-const SOCKET_ENDPOINT = 'localhost:3000';
+const SOCKET_ENDPOINT = 'https://dashboard.heroku.com/apps/mychat-backend-23';
 
 @Component({
   selector: 'app-login',
