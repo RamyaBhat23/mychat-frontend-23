@@ -1,0 +1,96 @@
+<div class="flex-container-1">
+    <div class="room-name">
+        <span style="color: white; font-size: 24pt;">{{room}}</span>
+        <button class="btn" style="padding: 4px 7px; float: right;">
+            <a routerLink="/login" style="text-decoration: none;" (click)="logout()">
+                <i class="fa fa-times" style="padding: 2px 2px; font-size: 18pt; color: rgba(255, 255, 255, 0.507);"></i>
+            </a>
+        </button>
+    </div>
+    <!-- <div style="background-color: rgba(37, 32, 99, 0.144); flex: 0.01;"></div> -->
+    <!-- <div class="room-users">
+        <div style="display: flex; align-items: center; padding: 5px 5px;">
+            <div style="margin-left: 2px; border: 1px solid white; background-color: rgba(12, 27, 66, 0.651); width: 10px; height: 10px; border-radius: 100%; display: inline-block;"></div>
+            <span style="color: white; margin-left: 2px; font-size: 14pt;">Room users</span>
+            <ul class="room-users-list"></ul>
+        </div>
+    </div> -->
+    <div class="display-message">
+        <ul id="message-list"></ul>
+    </div>
+    <div class="create-message">
+        <div style="position: relative; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+            <button class="btn toggle-emoji" (click)="toggleEmojiPicker()" style="display: flex; align-items: center; justify-content: center;"> 
+                <emoji-mart class="emoji-mart" title="Pick your emoji" emoji="point_up" (emojiSelect)="addEmoji($event)" *ngIf="showEmojiPicker" [style]="{ position: 'absolute', bottom: '30px', right: '20px'}"></emoji-mart>
+                <i class="fa fa-smile-o" style="padding: 2px 2px; font-size: 16pt; color: white;"></i>
+            </button>
+            <input class="message-text" type="text" [(ngModel)]="message" placeholder="Type a message" (keyup.enter)="SendMessage()">
+            <button class="btn" (click)="SendMessage()" style="padding: 4px 7px; color: white;">
+                <i class="fa fa-paper-plane" style="padding: 2px 2px; font-size: 14pt;"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .flex-container-1 {
+        width: 500px;
+        height: 600px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(37, 32, 99, 0.144);
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .room-name {
+        background-color: rgba(12, 27, 66, 0.651);
+        flex: 1;
+    }
+    
+    .room-users {
+        background-color: rgba(12, 27, 66, 0.3);
+        flex: 0.5;
+    }
+    
+    .create-message {
+        background-color: rgba(12, 27, 66, 0.651);
+        flex: 1;
+    }
+    
+    .display-message {
+        flex: 8;
+    }
+    
+    .message-text {
+        width: 430px;
+    }
+    
+    .toggle-emoji {
+        height: 30px;
+        width: 20px;
+        float: left;
+    }
+    
+    #message-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    button:focus,
+    button:active {
+        outline: none !important;
+        box-shadow: none;
+    }
+    
+    input[type="text"],
+    textarea {
+        outline: none;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+        border-radius: 2px !important;
+    }
+</style>
