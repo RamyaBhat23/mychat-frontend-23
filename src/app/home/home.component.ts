@@ -38,7 +38,6 @@ export class HomeComponent implements OnInit {
     
     this.socket.on('message-to-rooms', (msgdata) => {
       const element = document.createElement('li');
-      console.log("ramya good job");
       element.innerHTML = msgdata.username +": "+ msgdata.message;
       element.style.background = 'white';
       element.style.padding =  '5px 5px';
